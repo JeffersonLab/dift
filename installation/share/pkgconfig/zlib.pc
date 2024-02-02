@@ -1,0 +1,13 @@
+prefix=/daqfs/ersap/installation
+exec_prefix=/daqfs/ersap/installation
+libdir=/daqfs/ersap/installation/lib
+sharedlibdir=/daqfs/ersap/installation/lib
+includedir=/daqfs/ersap/installation/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.12
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

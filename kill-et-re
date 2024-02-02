@@ -1,0 +1,9 @@
+# Use ps and grep to find the process, then use awk to extract the PID
+# Kill reassembly engine
+pid=$(ps -ef | grep "packetBlasteeEtFifoClientNew" | grep -v grep | awk '{print $2}')
+kill -9 $pid
+
+# Kill et
+pid=$(ps -ef | grep "et_start_fifo" | grep -v grep | awk '{print $2}')
+kill -9 $pid
+

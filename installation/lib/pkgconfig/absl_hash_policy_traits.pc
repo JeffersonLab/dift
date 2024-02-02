@@ -1,0 +1,12 @@
+prefix=/daqfs/ersap/installation
+exec_prefix=${prefix}
+libdir=/daqfs/ersap/installation/lib
+includedir=/daqfs/ersap/installation/include
+
+Name: absl_hash_policy_traits
+Description: Abseil hash_policy_traits library
+URL: https://abseil.io/
+Version: 20220623
+Requires: absl_meta = 20220623
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX

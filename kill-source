@@ -1,0 +1,5 @@
+# Use ps and grep to find the process, then use awk to extract the PID
+# Kill clasBlaster 
+pid=$(ps -ef | grep "clasBlaster" | grep -v grep | awk '{print $2}')
+kill -9 $pid
+

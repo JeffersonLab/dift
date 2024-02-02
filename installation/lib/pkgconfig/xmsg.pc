@@ -1,0 +1,12 @@
+prefix=/daqfs/ersap/installation
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: xMsg
+Description: Lightweight publish/subscribe messaging system
+Version: 
+Libs: -L${libdir} -lxmsg
+Cflags: -I${includedir}
+Requires: libzmq >= 4.0, protobuf >= 2.5
+Requires.private: 

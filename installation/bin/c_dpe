@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+BASEDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)
+
+if [ -z "${ERSAP_HOME}" ]; then
+    ERSAP_HOME=${BASEDIR}
+    export ERSAP_HOME
+fi
+
+# find plugins directory
+if [ -n "${ERSAP_PLUGINS}" ]; then
+    if [ ! -d "${ERSAP_PLUGINS}" ]; then
+        echo "Error: \$ERSAP_PLUGINS is not a directory."
+        exit 1
+    fi
+    plugins_dir="${ERSAP_PLUGINS}"
+else
+    plugins_dir="${ERSAP_HOME}/plugins"
+fi
+
+# set library path
+lib_path="$ERSAP_HOME/lib"
+for plugin in "${plugins_dir}"/*/; do
+    plugin=${plugin%*/}
+    lib_path+=":${plugin}/services:${plugin}/lib"
+done
+lib_path+=":${ERSAP_HOME}/services"
+
+case "$(uname)" in
+    "Linux")
+        export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$lib_path
+        ;;
+    "Darwin")
+        export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH:+$DYLD_LIBRARY_PATH:}$lib_path
+        ;;
+    *)
+        ;;
+esac
+
+exec "${ERSAP_HOME}"/lib/ersap/c_dpe "$@"

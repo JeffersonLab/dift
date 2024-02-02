@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# source this script:
+#    source setup
+export LIBRARY_PATH=`pwd`/installation/lib
+
+export EJFAT_ERSAP_INSTALL_DIR=`pwd`/installation
+export GRPC_INSTALL_DIR=`pwd`/installation
+export DISRUPTOR_CPP_HOME=`pwd`/Disruptor-cpp
+export HIPO_HOME=`pwd`/hipo
+
+export LD_LIBRARY_PATH=$LIBRARY_PATH:$LD_LIBRARY_PATH
+export PATH=`pwd`/installation/bin:$PATH
+
+# for Mac
+#export DYLD_LIBRARY_PATH=$EJFAT_ERSAP_INSTALL_DIR/lib:$DYLD_LIBRARY_PATH
+
+echo "LD_LIBRARY_PATH is <$LD_LIBRARY_PATH>"
+

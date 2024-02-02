@@ -1,0 +1,12 @@
+prefix=/daqfs/ersap/installation
+exec_prefix=${prefix}
+libdir=/daqfs/ersap/installation/lib
+includedir=/daqfs/ersap/installation/include
+
+Name: absl_time_zone
+Description: Abseil time_zone library
+URL: https://abseil.io/
+Version: 20220623
+Requires:
+Libs: -L${libdir}  -labsl_time_zone
+Cflags: -I${includedir} -DNOMINMAX

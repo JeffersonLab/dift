@@ -1,0 +1,12 @@
+prefix=/daqfs/ersap/installation
+exec_prefix=${prefix}
+libdir=/daqfs/ersap/installation/lib
+includedir=/daqfs/ersap/installation/include
+
+Name: absl_pretty_function
+Description: Abseil pretty_function library
+URL: https://abseil.io/
+Version: 20220623
+Requires:
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX

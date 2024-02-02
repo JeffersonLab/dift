@@ -1,0 +1,12 @@
+prefix=/daqfs/ersap/installation
+exec_prefix=${prefix}
+libdir=/daqfs/ersap/installation/lib
+includedir=/daqfs/ersap/installation/include
+
+Name: absl_cleanup
+Description: Abseil cleanup library
+URL: https://abseil.io/
+Version: 20220623
+Requires: absl_cleanup_internal = 20220623, absl_config = 20220623, absl_core_headers = 20220623
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX
