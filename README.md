@@ -19,7 +19,7 @@ These Docker images are designed to facilitate testing and development of storag
 #### Environment Variables
 
 - `$PR_HOST`: IP address of the processing host. Defaults to the IP address where the container is running.
-- `$LB_HOST`: IP of the LB control plane host computer. The default is the LB host at ESnet. For using local LB hardware, contact Mike for the control plane address.
+- `$LB_HOST`: IP of the LB control plane host computer. The default is the LB host at ESnet. For using local LB hardware, contact goodrich@jlab.org for the control plane address.
 
 ## Requirements
 
@@ -32,20 +32,20 @@ Before running the images, ensure you have Docker installed and running on your 
 ### Source Image
 
 ```bash
-docker pull <docker-hub-username>/clas-ejfat:v0.1
-docker run -e CLAS_FILE=<path_to_clas12_raw_data_file> -e LB_IP=<load_balancer_ip> -e LB_HOST=<load_balancer_host_ip> -e MUT=<maximum_packet_size> -e BUFDELAY=<buffer_delay> <docker-hub-username>/clas-ejfat:v0.1
+docker pull gurjyan/clas-ejfat:v0.1
+docker run -e CLAS_FILE=<path_to_clas12_raw_data_file> -e LB_IP=<load_balancer_ip> -e LB_HOST=<load_balancer_host_ip> -e MUT=<maximum_packet_size> -e BUFDELAY=<buffer_delay> gurjyan/clas-ejfat:v0.1
 ```
 
 ### Sync Image
 
 ```bash
-docker pull <docker-hub-username>/ejfat-et:v0.1
+docker pull gurjyan/ejfat-et:v0.1
 docker run -e PR_HOST=<processing_host_ip> -e LB_HOST=<load_balancer_host_ip> <docker-hub-username>/ejfat-et:v0.1
 ```
 
-Replace `<docker-hub-username>`, `<path_to_clas12_raw_data_file>`, `<load_balancer_ip>`, `<load_balancer_host_ip>`, `<maximum_packet_size>`, and `<processing_host_ip>` with your specific values.
+Replace `<path_to_clas12_raw_data_file>`, `<load_balancer_ip>`, `<load_balancer_host_ip>`, `<maximum_packet_size>`, and `<processing_host_ip>` with your specific values.
 
 ## Support
 
-For assistance with setting up or using these Docker images, please contact Mike for specific inquiries related to the load balancer setup and other technical support.
+For assistance with setting up or using these Docker images, please contact Mike (goodrich@jlab.org), Carl (timmer@jlab.org) and Vardan (gurjyan@jlab.org) for specific inquiries related to the load balancer setup and other technical support.
 
